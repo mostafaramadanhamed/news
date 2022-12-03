@@ -1,7 +1,13 @@
 # news
 
 news app
-
+# packages used 
+1-flutter_bloc
+2-flutter_offLine
+3-dio
+4-flutter_easyLoading
+5-convex_bottom_bar
+6-url_launcher
 ## Getting Started
 
 This project is a starting point for a Flutter application.

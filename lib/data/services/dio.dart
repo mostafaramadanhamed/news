@@ -6,7 +6,7 @@ class DioHelper{
   static late  Dio  dio;
   DioHelper(){
     BaseOptions baseOptions=BaseOptions(
-      baseUrl: baseurl,
+      baseUrl: MyStrings.baseurl,
     receiveTimeout: 15*1000,
     sendTimeout: 15*1000,
     receiveDataWhenStatusError: true,

@@ -9,6 +9,8 @@ class NewsCubit extends Cubit<NewsStates>
 {
   NewsCubit():super(NewsInitialState());
 
+  static NewsCubit get(context) => BlocProvider.of(context);
+
 
   List<dynamic> topHead = [];
 

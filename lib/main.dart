@@ -1,20 +1,20 @@
 import 'package:flutter/material.dart';
-import 'package:news/presentation/screens/home_page.dart';
+import 'package:news/app_router.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp( MyApp(appRouter: AppRouter(),));
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+  final AppRouter appRouter;
+  const MyApp({Key? key,required this.appRouter}) : super(key: key);
 
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      title: 'News',
+    return  MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: HomeScreen(),
+     onGenerateRoute: appRouter.generateRoute,
     );
   }
 }

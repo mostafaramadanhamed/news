@@ -12,6 +12,8 @@ class NewsCubit extends Cubit<NewsStates>
 
   static NewsCubit get(context) => BlocProvider.of(context);
 
+  int currentIndex = 0;
+
   List<BottomNavigationBarItem> bottomItems =
   [
    const BottomNavigationBarItem(
@@ -39,6 +41,27 @@ class NewsCubit extends Cubit<NewsStates>
       label: 'Science',
     ),
   ];
+
+  List<Widget> screens =
+  [
+
+  ];
+
+  void changeBottomNavBar(int index)
+  {
+    currentIndex = index;
+    if(index == 1) {
+      getBusiness();
+    }
+    if(index == 2) {
+      getSports();
+    }
+    if(index == 3) {
+      getScience();
+    }
+    emit(NewsBottomNavState());
+  }
+
 
   List<dynamic> topHead = [];
 

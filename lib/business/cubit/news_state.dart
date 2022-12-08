@@ -1,5 +1,6 @@
 abstract class NewsStates{}
 class NewsInitialState extends NewsStates{}
+class NewsBottomNavState extends NewsStates{}
 class NewsLoadingState extends NewsStates{}
 class TopNewsSuccessState extends NewsStates{}
 class TopNewsFailureState extends NewsStates{

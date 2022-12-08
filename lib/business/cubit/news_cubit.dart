@@ -1,5 +1,6 @@
-
+import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:news/constants/strings.dart';
 
 import '../../data/services/dio.dart';
@@ -11,6 +12,33 @@ class NewsCubit extends Cubit<NewsStates>
 
   static NewsCubit get(context) => BlocProvider.of(context);
 
+  List<BottomNavigationBarItem> bottomItems =
+  [
+   const BottomNavigationBarItem(
+      icon: Icon(
+       FontAwesomeIcons.house,
+      ),
+      label: 'Top news',
+    ),
+   const BottomNavigationBarItem(
+      icon: Icon(
+        FontAwesomeIcons.briefcase,
+      ),
+      label: 'Business',
+    ),
+    const BottomNavigationBarItem(
+      icon: Icon(
+        FontAwesomeIcons.futbol,
+      ),
+      label: 'Sports',
+    ),
+    const BottomNavigationBarItem(
+      icon: Icon(
+        FontAwesomeIcons.vial,
+      ),
+      label: 'Science',
+    ),
+  ];
 
   List<dynamic> topHead = [];
 
@@ -112,4 +140,6 @@ class NewsCubit extends Cubit<NewsStates>
       emit(SciencesNewsFailureState(error.toString()));
     });
   }
+
+
 }

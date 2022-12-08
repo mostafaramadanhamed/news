@@ -6,8 +6,9 @@ news app
 2-flutter_offLine
 3-dio//
 4-flutter_easyLoading
-5-convex_bottom_bar//
+5-curved_navigation_bar//
 6-web_view flutter//
+7-font_awesome//
 ## Getting Started
 
 This project is a starting point for a Flutter application.

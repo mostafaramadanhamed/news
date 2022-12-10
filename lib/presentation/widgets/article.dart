@@ -14,14 +14,14 @@ Widget articleBuilder(list, context, {isSearch = false}) => ConditionalBuilder(
     itemCount:list.length,
   ),
   fallback: (context) =>
-  isSearch ? Container() : const Center(child: CircularProgressIndicator()),
+  isSearch ? Container() :  Center(child: Image.asset(MyImages.loadingImg,height: MediaQuery.of(context).size.height/4,width: MediaQuery.of(context).size.width/2,)),
 );
 
 Widget buildArticleItem(article, context) => InkWell(
   onTap: () {
     Navigator.push(
       context,
-      MaterialPageRoute(builder: (context)=>WebViewScreen(article[MyStrings.articleUrl]),
+      MaterialPageRoute(builder: (context)=>WebViewScreen( url: article[MyStrings.articleUrl],),
       ),
     );
   },
@@ -29,7 +29,7 @@ Widget buildArticleItem(article, context) => InkWell(
     padding: const EdgeInsets.all(20.0),
     child: Row(
       children: [
-        if(article[MyStrings.articleUrlImage] !=null)  Container(
+        if(article[MyStrings.articleUrlImage] != null)  Container(
           width:MediaQuery.of(context).size.width/3.3,
           height: MediaQuery.of(context).size.height/7,
           clipBehavior: Clip.antiAliasWithSaveLayer,
@@ -41,7 +41,8 @@ Widget buildArticleItem(article, context) => InkWell(
           child: FadeInImage(
             fit: BoxFit.cover,
               placeholder: const AssetImage(MyImages.loadingImg),
-              image:  NetworkImage('${article[MyStrings.articleUrlImage]}')),
+              image:  NetworkImage('${article[MyStrings.articleUrlImage]}'),
+          ),
         ),
         if(article[MyStrings.articleUrlImage] ==null)  Container(
           width:MediaQuery.of(context).size.width/3,

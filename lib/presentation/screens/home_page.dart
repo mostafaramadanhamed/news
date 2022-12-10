@@ -15,20 +15,22 @@ class HomeScreen extends StatelessWidget {
         var cubit=NewsCubit.get(context);
         return Scaffold(
           appBar: AppBar(
-            title: Text(
+            title: const Text(
                 'News App'
             ),
             actions: [
               IconButton(onPressed:(){
 
-              } , icon:Icon(Icons.search) ),
+              } , icon:const Icon(Icons.search) ),
               IconButton(onPressed: (){
 
-              }, icon: Icon(Icons.brightness_4_outlined))
+              }, icon: const Icon(Icons.brightness_4_outlined))
             ],
           ),
           body: cubit.screens[cubit.currentIndex],
           bottomNavigationBar: BottomNavigationBar(
+            selectedItemColor: Colors.deepOrange,
+            unselectedItemColor: Colors.orange,
             currentIndex: cubit.currentIndex,
             onTap: (index){
               cubit.changeBottomNavBar(index);

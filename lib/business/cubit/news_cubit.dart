@@ -76,7 +76,7 @@ class NewsCubit extends Cubit<NewsStates>
   {
     emit(NewsLoadingState());
 
-    DioHelper.getData(
+    DioHelper().getData(
       url: 'v2/top-headlines',
       query:
       {
@@ -86,11 +86,8 @@ class NewsCubit extends Cubit<NewsStates>
     ).then((value)
     {
       topHead = value.data['articles'];
-      print(topHead[0]['title']);
-
       emit(TopNewsSuccessState());
     }).catchError((error){
-      print(error.toString());
       emit(TopNewsFailureState(error.toString()));
     });
   }
@@ -100,7 +97,7 @@ class NewsCubit extends Cubit<NewsStates>
   {
     emit(NewsLoadingState());
 
-    DioHelper.getData(
+    DioHelper().getData(
       url: 'v2/top-headlines',
       query:
       {
@@ -111,11 +108,10 @@ class NewsCubit extends Cubit<NewsStates>
     ).then((value)
     {
       business = value.data['articles'];
-      print(business[0]['title']);
+
 
       emit(BusinessNewsSuccessState());
     }).catchError((error){
-      print(error.toString());
       emit(BusinessNewsFailureState(error.toString()));
     });
   }
@@ -125,7 +121,7 @@ class NewsCubit extends Cubit<NewsStates>
   {
     emit(NewsLoadingState());
 
-    DioHelper.getData(
+    DioHelper().getData(
       url: 'v2/top-headlines',
       query:
       {
@@ -136,11 +132,9 @@ class NewsCubit extends Cubit<NewsStates>
     ).then((value)
     {
       sports = value.data['articles'];
-      print(sports[0]['title']);
-
       emit(SportsNewsSuccessState());
     }).catchError((error){
-      print(error.toString());
+      debugPrint(error.toString());
       emit(SportsNewsFailureState(error.toString()));
     });
   }
@@ -151,7 +145,7 @@ class NewsCubit extends Cubit<NewsStates>
   {
     emit(NewsLoadingState());
 
-    DioHelper.getData(
+    DioHelper().getData(
       url: 'v2/top-headlines',
       query:
       {
@@ -162,11 +156,10 @@ class NewsCubit extends Cubit<NewsStates>
     ).then((value)
     {
       science = value.data['articles'];
-      print(science[0]['title']);
 
       emit(SciencesNewsSuccessState());
     }).catchError((error){
-      print(error.toString());
+      debugPrint(error.toString());
       emit(SciencesNewsFailureState(error.toString()));
     });
   }
@@ -177,22 +170,22 @@ class NewsCubit extends Cubit<NewsStates>
   {
     emit(NewsGetSearchLoadingState());
 
-    DioHelper.getData(
+    DioHelper().getData(
       url: 'v2/everything',
       query:
       {
-        'q':'$value',
+        'q':value,
         'apiKey':MyStrings.apiKey,
       },
     ).then((value)
     {
-      //print(value.data['articles'][0]['title']);
+
       search = value.data['articles'];
-      // print(search[0]['title']);
+
 
       emit(NewsGetSearchSuccessState());
     }).catchError((error){
-      // print(error.toString());
+
       emit(NewsGetSearchErrorState(error.toString()));
     });
   }

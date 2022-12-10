@@ -3,7 +3,7 @@ import 'package:news/constants/strings.dart';
 
 class DioHelper{
 
-  static late  Dio  dio;
+    late Dio  dio;
   DioHelper(){
     BaseOptions baseOptions=BaseOptions(
       baseUrl: MyStrings.baseurl,
@@ -14,17 +14,13 @@ class DioHelper{
     dio=Dio(baseOptions);
   }
 
-  static Future<Response> getData({
+   Future<Response> getData({
     required String url,
     Map<String, dynamic>? query,
-    String lang = 'en',
-    String ?token,
   }) async
   {
     dio.options.headers =
     {
-      'lang':lang,
-      'Authorization': token??'',
       'Content-Type': 'application/json',
     };
 

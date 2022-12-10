@@ -1,5 +1,6 @@
 import 'package:conditional_builder_null_safety/conditional_builder_null_safety.dart';
 import 'package:flutter/material.dart';
+import 'package:news/constants/images.dart';
 import 'package:news/constants/strings.dart';
 
 import '../screens/web_view.dart';
@@ -29,36 +30,38 @@ Widget buildArticleItem(article, context) => InkWell(
     child: Row(
       children: [
         if(article[MyStrings.articleUrlImage] !=null)  Container(
-          width: 120.0,
-          height: 120.0,
+          width:MediaQuery.of(context).size.width/3.3,
+          height: MediaQuery.of(context).size.height/7,
+          clipBehavior: Clip.antiAliasWithSaveLayer,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(
               10.0,
             ),
           ),
           child: FadeInImage(
-              placeholder: placeholder,
+            fit: BoxFit.cover,
+              placeholder: const AssetImage(MyImages.loadingImg),
               image:  NetworkImage('${article[MyStrings.articleUrlImage]}')),
         ),
         if(article[MyStrings.articleUrlImage] ==null)  Container(
           width:MediaQuery.of(context).size.width/3,
-          height: MediaQuery.of(context).size.height/8,
+          height: MediaQuery.of(context).size.height/7,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(
               10.0,
             ),
             image:const DecorationImage(
-              image: AssetImage('assets/images/nullimage.png'),
+              image: AssetImage(MyImages.nullImg),
               fit: BoxFit.cover,
             ),
           ),
         ),
-        const SizedBox(
-          width: 20.0,
+         SizedBox(
+          width: MediaQuery.of(context).size.width/25,
         ),
         Expanded(
           child: SizedBox(
-            height: 120.0,
+            height:MediaQuery.of(context).size.height/7,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.start,
@@ -66,7 +69,10 @@ Widget buildArticleItem(article, context) => InkWell(
                 Expanded(
                   child: Text(
                     '${article[MyStrings.articleTitle]}',
-                    style: Theme.of(context).textTheme.bodyText1,
+                    style:  TextStyle(
+                      fontSize: MediaQuery.of(context).size.width/23,
+                      fontWeight: FontWeight.w600,
+                    ),
                     maxLines: 2,
                     overflow: TextOverflow.ellipsis,
                   ),
@@ -75,22 +81,28 @@ Widget buildArticleItem(article, context) => InkWell(
               Text(
                   '${article[MyStrings.articleSource][MyStrings.articleSourceName]}',
                   maxLines: 1,
-                  style: const TextStyle(
-                    color: Colors.grey,
+                  style:  TextStyle(
+                    fontSize: MediaQuery.of(context).size.width/28,
+                    fontWeight: FontWeight.w500,
+                    color: Colors.grey.shade700,
                   ),
                 ),
+          SizedBox(
+            height: MediaQuery.of(context).size.height/70,
+          ),
           Text(
             article[MyStrings.articleTime].toString().substring(0,10),
-            style: const TextStyle(
-              color: Colors.grey,
-            ),),
+            style:    TextStyle(
+              fontSize: MediaQuery.of(context).size.width/30,
+              fontWeight: FontWeight.w500,
+              color: Colors.grey.shade500,
+            ),
+          ),
               ],
             ),
           ),
         ),
-        const SizedBox(
-          width: 15.0,
-        ),
+
       ],
     ),
   ),

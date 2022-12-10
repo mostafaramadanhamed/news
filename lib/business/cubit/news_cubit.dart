@@ -2,6 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:news/constants/strings.dart';
+import 'package:news/presentation/screens/business.dart';
+import 'package:news/presentation/screens/science.dart';
+import 'package:news/presentation/screens/sports.dart';
+import 'package:news/presentation/screens/top_news.dart';
 
 import '../../data/services/dio.dart';
 import 'news_state.dart';
@@ -44,7 +48,10 @@ class NewsCubit extends Cubit<NewsStates>
 
   List<Widget> screens =
   [
-
+    const TopHeadScreen(),
+    const BusinessScreen(),
+    const SportsScreen(),
+    const ScienceScreen(),
   ];
 
   void changeBottomNavBar(int index)

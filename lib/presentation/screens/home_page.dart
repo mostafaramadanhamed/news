@@ -54,7 +54,21 @@ class HomeScreen extends StatelessWidget {
           final bool connected = connectivity != ConnectivityResult.none;
           if(connected){
             return  Scaffold(
-                appBar: buildAppBar(context),
+                appBar:AppBar(
+                  elevation: 0,
+                  backgroundColor: Colors.deepPurple,
+                  title: const Text(
+                      'News App'
+                  ),
+                  actions: [
+                    IconButton(onPressed:(){
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=>SearchScreen()));
+                    } , icon:const Icon(Icons.search) ),
+                    IconButton(onPressed: (){
+
+                    }, icon: const Icon(Icons.brightness_4_outlined))
+                  ],
+                ),
                 bottomNavigationBar: BottomNavigationBar(
                   selectedItemColor: Colors.deepPurple,
                   unselectedItemColor: Colors.deepPurpleAccent.shade100,
@@ -80,21 +94,4 @@ class HomeScreen extends StatelessWidget {
   }
 
 
-  AppBar buildAppBar(context) {
-    return AppBar(
-      elevation: 0,
-          backgroundColor: Colors.deepPurple,
-          title: const Text(
-              'News App'
-          ),
-          actions: [
-            IconButton(onPressed:(){
-              Navigator.push(context, MaterialPageRoute(builder: (context)=>SearchScreen()));
-            } , icon:const Icon(Icons.search) ),
-            IconButton(onPressed: (){
-
-            }, icon: const Icon(Icons.brightness_4_outlined))
-          ],
-        );
-  }
 }

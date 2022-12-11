@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_offline/flutter_offline.dart';
 import 'package:news/constants/images.dart';
+import 'package:news/presentation/screens/search_screen.dart';
 
 import '../../business/cubit/news_cubit.dart';
 import '../../business/cubit/news_state.dart';
@@ -53,7 +54,7 @@ class HomeScreen extends StatelessWidget {
           final bool connected = connectivity != ConnectivityResult.none;
           if(connected){
             return  Scaffold(
-                appBar: buildAppBar(),
+                appBar: buildAppBar(context),
                 bottomNavigationBar: BottomNavigationBar(
                   selectedItemColor: Colors.deepPurple,
                   unselectedItemColor: Colors.deepPurpleAccent.shade100,
@@ -79,7 +80,7 @@ class HomeScreen extends StatelessWidget {
   }
 
 
-  AppBar buildAppBar() {
+  AppBar buildAppBar(context) {
     return AppBar(
       elevation: 0,
           backgroundColor: Colors.deepPurple,
@@ -88,7 +89,7 @@ class HomeScreen extends StatelessWidget {
           ),
           actions: [
             IconButton(onPressed:(){
-
+              Navigator.push(context, MaterialPageRoute(builder: (context)=>SearchScreen()));
             } , icon:const Icon(Icons.search) ),
             IconButton(onPressed: (){
 

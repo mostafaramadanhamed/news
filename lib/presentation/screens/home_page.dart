@@ -55,8 +55,6 @@ class HomeScreen extends StatelessWidget {
           if(connected){
             return  Scaffold(
                 appBar:AppBar(
-                  elevation: 0,
-                  backgroundColor: Colors.deepPurple,
                   title: const Text(
                       'News App'
                   ),

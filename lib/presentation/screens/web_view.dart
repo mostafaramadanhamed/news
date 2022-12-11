@@ -14,12 +14,8 @@ class WebViewScreen extends StatelessWidget {
       appBar: AppBar(
         leading: IconButton(onPressed: (){
           Navigator.pop(context);
-        },icon:const Icon( FontAwesomeIcons.angleLeft,color: Colors.black,),),
-        elevation: 0,
-        backgroundColor: Colors.white,
-        title: const Text('Details',style: TextStyle(
-          color: Colors.black
-        ),),
+        },icon:const Icon( FontAwesomeIcons.angleLeft,),),
+        title: const Text('Details'),
         centerTitle: true,
       ),
       body:  WebView(

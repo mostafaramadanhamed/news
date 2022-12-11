@@ -24,7 +24,24 @@ class MyApp extends StatelessWidget {
             ..getScience(),
         ),
       ],
-      child: const MaterialApp(
+      child:  MaterialApp(
+        theme: ThemeData(
+          brightness: Brightness.light,
+          appBarTheme:  AppBarTheme(
+            elevation: 0,
+            backgroundColor: Colors.blueGrey.shade100,
+            titleTextStyle:  TextStyle(
+              color:  Colors.blueGrey.shade900,
+              fontWeight: FontWeight.w600,
+              fontSize: 22,
+            ),
+            iconTheme: IconThemeData(
+              size: 26,
+              color: Colors.blueGrey.shade800,
+            )
+          )
+        ),
+        themeMode: ThemeMode.light,
         debugShowCheckedModeBanner: false,
        home: HomeScreen(),
       ),

@@ -79,6 +79,8 @@ class HomeScreen extends StatelessWidget {
 
   AppBar buildAppBar() {
     return AppBar(
+      elevation: 0,
+          backgroundColor: Colors.deepPurple,
           title: const Text(
               'News App'
           ),

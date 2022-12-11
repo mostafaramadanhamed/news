@@ -55,6 +55,8 @@ class HomeScreen extends StatelessWidget {
             return  Scaffold(
                 appBar: buildAppBar(),
                 bottomNavigationBar: BottomNavigationBar(
+                  selectedItemColor: Colors.deepPurple,
+                  unselectedItemColor: Colors.deepPurpleAccent.shade100,
                   items:cubit.bottomItems,
                   currentIndex: cubit.currentIndex,
                   onTap: (index){

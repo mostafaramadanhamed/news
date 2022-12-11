@@ -14,7 +14,13 @@ newsCubit=NewsCubit();
   Route ? generateRoute(RouteSettings settings){
     switch (settings.name){
       case MyStrings.newScreen:
-        return MaterialPageRoute(builder: (_)=>  const HomeScreen());
+        return MaterialPageRoute(builder: (_)=>  BlocProvider(
+            create: (BuildContext context) => newsCubit
+                  ..getTopHead()
+                  ..getBusiness()
+                  ..getSports()
+                  ..getScience(),
+            child: const HomeScreen()));
     }
     return null;
   }

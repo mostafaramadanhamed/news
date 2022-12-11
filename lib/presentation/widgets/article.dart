@@ -10,7 +10,12 @@ Widget articleBuilder(list, context, {isSearch = false}) => ConditionalBuilder(
   builder: (context) => ListView.separated(
     physics: const BouncingScrollPhysics(),
     itemBuilder: (context, index) => buildArticleItem(list[index], context),
-    separatorBuilder: (context, index) => const Divider(),
+    separatorBuilder: (context, index) =>  Divider(
+      thickness: 1.5,
+      color: Colors.blueGrey.shade100,
+      endIndent: MediaQuery.of(context).size.width/14,
+      indent: MediaQuery.of(context).size.width/12,
+    ),
     itemCount:list.length,
   ),
   fallback: (context) =>
@@ -18,6 +23,8 @@ Widget articleBuilder(list, context, {isSearch = false}) => ConditionalBuilder(
 );
 
 Widget buildArticleItem(article, context) => InkWell(
+  splashColor: Colors.blueGrey.shade500,
+  highlightColor: Colors.blueGrey.shade100,
   onTap: () {
     Navigator.push(
       context,

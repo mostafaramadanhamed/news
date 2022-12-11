@@ -20,7 +20,7 @@ class NewsCubit extends Cubit<NewsStates>
 
   List<BottomNavigationBarItem> bottomItems =
   [
-   const BottomNavigationBarItem(
+    const BottomNavigationBarItem(
       icon: Icon(
        FontAwesomeIcons.house,
       ),

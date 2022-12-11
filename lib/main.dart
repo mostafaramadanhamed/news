@@ -39,7 +39,8 @@ class MyApp extends StatelessWidget {
               size: 26,
               color: Colors.blueGrey.shade800,
             )
-          )
+          ),
+
         ),
         themeMode: ThemeMode.light,
         debugShowCheckedModeBanner: false,

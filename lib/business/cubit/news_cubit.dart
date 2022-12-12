@@ -14,7 +14,7 @@ class NewsCubit extends Cubit<NewsStates>
 {
   NewsCubit():super(NewsInitialState());
 
-  static NewsCubit get(context) => BlocProvider.of(context);
+  static NewsCubit get(context) => BlocProvider.of<NewsCubit>(context);
 
   int currentIndex = 0;
 
@@ -189,6 +189,7 @@ class NewsCubit extends Cubit<NewsStates>
       emit(NewsGetSearchErrorState(error.toString()));
     });
   }
+
 
 
 }

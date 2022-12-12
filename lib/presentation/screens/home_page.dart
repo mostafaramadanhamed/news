@@ -62,9 +62,6 @@ class HomeScreen extends StatelessWidget {
                     IconButton(onPressed:(){
                       Navigator.push(context, MaterialPageRoute(builder: (context)=>SearchScreen()));
                     } , icon:const Icon(Icons.search) ),
-                    IconButton(onPressed: (){
-
-                    }, icon: const Icon(Icons.brightness_4_outlined))
                   ],
                 ),
                 bottomNavigationBar: BottomNavigationBar(
@@ -85,7 +82,7 @@ class HomeScreen extends StatelessWidget {
             );
           }
         },
-          child: Center(child: CircularProgressIndicator(),),
+          child:const Center(child: CircularProgressIndicator(color: Colors.blueGrey,),),
         );
       }
     );

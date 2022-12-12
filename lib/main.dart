@@ -5,7 +5,7 @@ import 'package:news/presentation/screens/home_page.dart';
 import 'business/cubit/news_cubit.dart';
 
 void main() {
-  runApp( const MyApp());
+  runApp(  const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -16,12 +16,13 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return  MultiBlocProvider(
       providers: [
-        BlocProvider(
+        BlocProvider<NewsCubit>(
           create: (context) => NewsCubit()
           ..getTopHead()
-            ..getBusiness()
-            ..getSports()
-            ..getScience(),
+          ..getBusiness()
+          ..getSports()
+          ..getScience(),
+
         ),
       ],
       child:  MaterialApp(
@@ -40,9 +41,8 @@ class MyApp extends StatelessWidget {
               color: Colors.blueGrey.shade800,
             )
           ),
-
         ),
-        themeMode: ThemeMode.light,
+        themeMode:ThemeMode.light,
         debugShowCheckedModeBanner: false,
        home: HomeScreen(),
       ),
